@@ -1,15 +1,10 @@
 FROM node:lts-alpine as builder
 WORKDIR /app
-
 RUN npm install nx -g
-
 COPY package.json .
 COPY package-lock.json .
 COPY nx.json .
-
 RUN npm install
-
-
 COPY . .
 RUN npm run build
 
